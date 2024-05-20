@@ -313,7 +313,7 @@ class Similarity_module(nn.Module):
 
 
 
-class ASTGFormer(nn.Module):
+class EMBSFormer(nn.Module):
     def __init__(self,
                  seq_len,
                  pre_len,
@@ -327,7 +327,7 @@ class ASTGFormer(nn.Module):
                  add_day_in_week=False,
                  add_holiday=False,
                  droupout=0.1):
-        super(ASTGFormer, self).__init__()
+        super(EMBSFormer, self).__init__()
         self.seq_len = seq_len
         self.pre_len = pre_len
         self.data_embedding = DataEmbedding(embedded_dim, feature_dim, droupout, add_time_in_day, add_day_in_week, add_holiday)

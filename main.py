@@ -67,7 +67,7 @@ def get_model(args, dm):
         backbones = astgformer_config.get_model_config(CONFIG_PATH[args.model_name][args.data_name],
                                                        DATA_PATH[args.data_name]["adj"],
                                                        device)
-        model = EMBSFormer.ASTGFormer(int(dm.config['Data']['seq_len']),
+        model = EMBSFormer.EMBSFormer(int(dm.config['Data']['seq_len']),
                                       int(dm.config['Data']['pre_len']),
                                       DATA_PATH[args.data_name]["nodes_num"],
                                       int(dm.config['Data']['feature_dim']),
