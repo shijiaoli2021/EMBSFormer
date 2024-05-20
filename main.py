@@ -6,7 +6,7 @@ import model.EMBSFormer as EMBSFormer
 import tasks.PreTask as Task
 import utils.data.DataSet as Data
 import pytorch_lightning as pl
-from model_config import ASTGFormer_config as ast_config
+from model_config import EMBSFormer_config as ast_config
 import torch
 from pytorch_lightning.callbacks import ModelCheckpoint
 import utils.mail.email_funtion as ef
@@ -39,7 +39,6 @@ def get_exit_model(args, dm):
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         torch.set_default_tensor_type(torch.cuda.DoubleTensor)
     backbones = ast_config.get_model_config(args.config_path, DATA_PATH[args.data_name]["adj"], device)
-    # ASTGFomer3 no holiday
     dict = {
         "seq_len": int(dm.config["Data"]["seq_len"]),
         "pre_len": int(dm.config["Data"]["pre_len"]),
@@ -63,8 +62,8 @@ def get_model(args, dm):
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = None
     if args.model_name == "EMBSFormer":
-        import model_config.ASTGFormer_config as astgformer_config
-        backbones = astgformer_config.get_model_config(CONFIG_PATH[args.model_name][args.data_name],
+        import model_config.EMBSFormer_config as embsformer_config
+        backbones = embsformer_config.get_model_config(CONFIG_PATH[args.model_name][args.data_name],
                                                        DATA_PATH[args.data_name]["adj"],
                                                        device)
         model = EMBSFormer.EMBSFormer(int(dm.config['Data']['seq_len']),
