@@ -1,6 +1,6 @@
 ## model
 
-### ASTGFormer
+### EMBSFormer
 
 #### abstract
 
