@@ -4,8 +4,7 @@
 
 #### abstract
 
-Traffic flow prediction is crucial for traffic management and public property safety. In this paper, we propose ASTGFormer, a long-short historical similarity-informed graph convolution transformer for traffic flow predic-tion.Significantly, we differentiate the interplay between recent history, long-term history and future predictions, and introduce distinct methodologies for each segment. On the one hand, for the recent history data, we employ self-attention mechanisms and graph convolution to capture the dynamic spatio-temporal dependencies and adjacency relationships of the traffic flow. On the other hand, for the long-term historical data, we propose a long-short historical similarity attention mechanism to capture the similarity relationship between the long-term and recent historical patterns, thereby learning the periodic traffic patterns and complementing the prediction results. In addition, we also consider the impact of national statutory holidays in our model. Notably, ASTGFormer not only simplifies the handling of long-term historical data and significantly reduces the number of parameters but also achieves outstanding results compared with proposed base-lines in experiments conducted on three real-world datasets.
-![ASTGFormer](./figures/framework.png)
+Traffic flow prediction plays an important role in Intelligent Transportation Systems (ITS) to support traffic management and urban planning. There has been extensive successful work in this area. However, these approaches focus only on modeling the flow transition and ignore the flow generation process, which manifests itself in two ways: (i) The models are based on Markovian assumptions, ignoring the multi-periodicity of the flow generation in nodes. (ii) The same structure is designed to encode both the transition and generation processes, ignoring the differences between them. To address these problems, we propose EMBSformer, which full name is Effective Multi-Branch Similarity  Transformer for Traffic Flow Prediction. Through data analysis, we found that the factors affecting traffic flow include node-level traffic generation and graph-level traffic transition, which describe the multi-periodicity and trend of a node, respectively. Specifically, to capture traffic generation patterns, we propose a similarity analysis module that supports multi-branch encoding to dynamically expand significant cycles. For traffic transition, we employ a temporal and spatial self-attention mechanism to maintain global node interactions, and use GNN and 1d conv to model local node interactions, respectively. Model performance is evaluated on three real-world datasets on both long-term and short-term prediction tasks. Experimental results show that EMBSformer significantly outperforms baselines on the long-term prediction task, with an significant improvement. Moreover, compared to models based on flow transition modeling (e.g. GMAN, 513k) in short-term prediction, the variant of EMBSFormer(93K) uses nearly 20% of the parameters achieving the same performance.
 
 ## Datasets
 
@@ -53,6 +52,6 @@ PEMS04, PEMS07, PEMS08
 we can choose whether send email or plot predict figure with the key of "send_email" and "pre_curve_figure"
 
 ```python
-python main.py --model_name ASTGFormer  --max_epochs 100 --batch_size 16 --data_name PEMS08 --gpus 1 
+python main.py --model_name EMBSFormer  --max_epochs 100 --batch_size 16 --data_name PEMS08 --gpus 1 
 ```
 

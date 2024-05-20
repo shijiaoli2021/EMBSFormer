@@ -151,14 +151,8 @@ if __name__ == '__main__':
     parser.add_argument("--model_name",
                         type=str,
                         help="The name of model",
-                        choices=("ASTGFormer",
-                                 "Recent_attention",
-                                 "Cycle_module",
-                                 "ASTGFormer_noASTG",
-                                 "ASTGFormer_noGCN",
-                                 "VAR"
-                                 ),
-                        default="ASTGCN")
+                        choices=("EMBSFormer"),
+                        default="EMBSFormer")
     parser.add_argument("--batch_size", type=int, default=16)
     parser.add_argument("--model_path", type=str, default="")
     parser.add_argument("--config_path", type=str, default="")
