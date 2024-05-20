@@ -5,7 +5,7 @@ import utils.data.functions as functions
 import torch
 
 
-# for ASTGFomer
+# for EMBSFomer
 def get_model_config(config_path, adj_path, device):
     config = configparser.ConfigParser()
     config.read(config_path)

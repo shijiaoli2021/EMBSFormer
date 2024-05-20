@@ -360,7 +360,7 @@ class ASTGFormer(nn.Module):
         return pre.transpose(1, 2)
 
 
-# class ASTGFormer(nn.Module):
+# class EMBSFormer(nn.Module):
 #     def __init__(self,
 #                  seq_len,
 #                  pre_len,
@@ -375,7 +375,7 @@ class ASTGFormer(nn.Module):
 #                  add_day_in_week=False,
 #                  add_holiday=False,
 #                  droupout=0.1):
-#         super(ASTGFormer, self).__init__()
+#         super(EMBSFormer, self).__init__()
 #         self.seq_len = seq_len
 #         self.pre_len = pre_len
 #         self.num_of_days = num_of_days

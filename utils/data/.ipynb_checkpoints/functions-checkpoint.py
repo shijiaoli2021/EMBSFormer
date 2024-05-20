@@ -332,7 +332,7 @@ def generate_torch_datasets(
     train_dataset = None
     test_dataset = None
     stats = None
-    if config['Model']['model_name'] == "ASTGFormer"\
+    if config['Model']['model_name'] == "EMBSFormer"\
             or config['Model']['model_name'] == "Recent_attention"\
             or config['Model']['model_name'] == "Day_attention"\
             or config['Model']['model_name'] == "Week_attention" \
@@ -407,7 +407,7 @@ def generate_torch_datasets2(
     train_dataset = None
     test_dataset = None
     stats = None
-    if config['Model']['model_name'] == "ASTGFormer"\
+    if config['Model']['model_name'] == "EMBSFormer"\
             or config['Model']['model_name'] == "Recent_attention"\
             or config['Model']['model_name'] == "Day_attention"\
             or config['Model']['model_name'] == "Week_attention" \

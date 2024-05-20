@@ -62,7 +62,7 @@ def get_model(args, dm):
     if args.gpus>0:
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = None
-    if args.model_name == "ASTGFormer":
+    if args.model_name == "EMBSFormer":
         import model_config.ASTGFormer_config as astgformer_config
         backbones = astgformer_config.get_model_config(CONFIG_PATH[args.model_name][args.data_name],
                                                        DATA_PATH[args.data_name]["adj"],
@@ -90,7 +90,7 @@ def main_task_train(args):
                                           DATA_PATH[args.data_name]["minute_offset"],
                                           args.data_name,
                                           args.batch_size,
-                                          CONFIG_PATH["ASTGFormer"][args.data_name],
+                                          CONFIG_PATH["EMBSFormer"][args.data_name],
                                           split_ratio=0.7
                                           )
     model = get_model(args, dm)
