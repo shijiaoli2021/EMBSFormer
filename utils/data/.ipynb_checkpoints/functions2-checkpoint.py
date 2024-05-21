@@ -270,13 +270,7 @@ def generate_torch_datasets(
     train_dataset = None
     test_dataset = None
     stats = None
-    if config['Model']['model_name'] == "EMBSFormer"\
-            or config['Model']['model_name'] == "Recent_attention"\
-            or config['Model']['model_name'] == "Day_attention"\
-            or config['Model']['model_name'] == "Week_attention" \
-            or config['Model']['model_name'] == "ASTGR_Day" \
-            or config['Model']['model_name'] == "ASTGFormer_noASTG" \
-            or config['Model']['model_name'] == "ASTGR_Week":
+    if config['Model']['model_name'] == "EMBSFormer":
         all_data = generate_dataset_AST(
             data,
             int(config['Training']['num_of_hours']),
